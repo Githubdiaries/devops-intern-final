@@ -1,0 +1,11 @@
+Loki Setup Notes
+
+1. Start Loki using Docker:
+   docker run -d --name=loki -p 3100:3100 grafana/loki:3.0.0
+
+2. Check if Loki is running:
+   http://localhost:3100/ready
+
+3. View logs (example curl):
+   curl "http://localhost:3100/loki/api/v1/query" \
+     --get --data-urlencode 'query={job="docker"}'
